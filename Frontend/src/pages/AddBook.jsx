@@ -10,7 +10,7 @@ const AddBook = () => {
     description: "",
     price: ""
   });
-
+  const API = "https://bookstore-backenc.onrender.com"
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBookData({ ...bookData, [name]: value });
@@ -35,7 +35,7 @@ const AddBook = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:5000/api/admin/addBook",
+          `${API}/api/admin/addBook`,
           bookData,
           { headers }
         );
