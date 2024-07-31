@@ -7,10 +7,11 @@ const BookCards = ({ datas, favorite, onRemove }) => {
     bookid: datas._id,
     authorization: `Bearer ${localStorage.getItem('token')}`,
   };
+    const API = "https://bookstore-backenc.onrender.com"
 
   const handleRemoveBook = async () => {
     try {
-      const response = await axios.patch(`http://localhost:5000/api/favorite/removeFavBook`, {}, { headers });
+      const response = await axios.patch(`${API}/api/favorite/removeFavBook`, {}, { headers });
       alert(response.data.message);
       onRemove(datas._id); 
     } catch (error) {
