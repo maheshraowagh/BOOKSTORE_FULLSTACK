@@ -14,7 +14,7 @@ const Login = () => {
     email: "",
     password: ""
   });
-
+  const API = "https://bookstore-backenc.onrender.com"
   const handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
    
     try {
-      const response = await fetch("http://localhost:5000/api/user/login", {
+      const response = await fetch(`${API}/api/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
