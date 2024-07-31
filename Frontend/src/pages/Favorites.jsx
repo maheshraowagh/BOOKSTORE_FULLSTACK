@@ -4,7 +4,7 @@ import BookCards from "../components/BookCards";
 
 const Favorites = () => {
   const [favBooks, setFavBooks] = useState([]);
-
+  const API = "https://bookstore-backenc.onrender.com"
   const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -12,7 +12,7 @@ const Favorites = () => {
 
   const fetchFavorites = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/favorite/getFavBook", { headers });
+      const response = await axios.get(`${API}/api/favorite/getFavBook`, { headers });
       setFavBooks(response.data);
     } catch (error) {
       console.log(error);
