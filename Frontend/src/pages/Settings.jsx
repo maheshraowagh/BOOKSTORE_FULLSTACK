@@ -9,11 +9,11 @@ const Settings = () => {
     userid: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem('token')}`,
   };
-
+  const API = "https://bookstore-backenc.onrender.com"
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:5000/api/user/userInfo",
+        `${API}/api/user/userInfo`,
         { headers }
       );
       console.log(response);
@@ -29,7 +29,7 @@ const Settings = () => {
   };
 
   const submitAddress = async()=>{
-   const response = await axios.patch("http://localhost:5000/api/user/update",
+   const response = await axios.patch(`${API}/api/user/update`,
     value,
     {headers}
    );
