@@ -9,11 +9,11 @@ const OrderHistory = () => {
     userid: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem('token')}`,
   };
-
+  const API = "https://bookstore-backenc.onrender.com"
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/order/orderHistory", { headers });
+        const response = await axios.get(`${API}/api/order/orderHistory`, { headers });
         console.log(response.data.data);
         setOrderHistory(response.data.data);
       } catch (error) {
