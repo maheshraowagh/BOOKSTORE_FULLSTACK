@@ -9,11 +9,11 @@ const Profile = () => {
   const [profile,setProfile] = useState()
   // const token = useSelector((state) => state.auth.token);
   const token= localStorage.getItem("token")
-  
+    const API = "https://bookstore-backenc.onrender.com"
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/user/userInfo", {
+      const response = await fetch(`${API}/api/user/userInfo`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
