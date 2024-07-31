@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 const Carts = () => {
   const [cart, setCart] = useState("");
   const [total, setTotal] = useState(0);
-
+  const API = "https://bookstore-backenc.onrender.com"
   const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/cart/userCart", {
+      const response = await fetch(`${API}/api/cart/userCart`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const Carts = () => {
   const deleteCartItem = (id) => {
     const del = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/cart/removeBookInCart", {
+        const response = await fetch(`${API}/api/cart/removeBookInCart`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -67,7 +67,7 @@ const Carts = () => {
 
   const placeOrder = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/order/placeOrder`, {
+      const response = await fetch(`${API}/api/order/placeOrder`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
