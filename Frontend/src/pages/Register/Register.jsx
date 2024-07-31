@@ -18,6 +18,7 @@ const Register = () => {
     password: "",
     address: ""
   });
+    const API = "https://bookstore-backenc.onrender.com"
 
   const handleChange = (e) => {
     let name = e.target.name;
@@ -29,7 +30,7 @@ const Register = () => {
     e.preventDefault();
     console.log(user);
     try {
-      const response = await fetch("http://localhost:5000/api/user/signup", {
+      const response = await fetch(`${API}/api/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
