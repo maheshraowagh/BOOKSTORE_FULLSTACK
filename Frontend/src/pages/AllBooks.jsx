@@ -7,10 +7,10 @@ import Loader from '../components/Loader'
 const AllBooks = () => {
  
     const [data,setData] = useState()
-
+  const API = "https://bookstore-backenc.onrender.com"
     const recentBook = async()=>{
         try {
-            const response =  await axios("http://localhost:5000/api/admin/getAllBooks",{
+            const response =  await axios(`${API}/api/admin/getAllBooks`,{
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",
