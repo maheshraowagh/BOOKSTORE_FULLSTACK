@@ -5,10 +5,11 @@ import Loader from './Loader.jsx'
 
 const RecentlyAdded = () => {
     const [data,setData] = useState()
+      const API = "https://bookstore-backenc.onrender.com"
 
     const recentBook = async()=>{
         try {
-            const response =  await axios("http://localhost:5000/api/admin/getFourBooks",{
+            const response =  await axios(`${API}/api/admin/getFourBooks`,{
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",
