@@ -19,7 +19,7 @@ dotenv.config({
 const app = express();
 
 const corsOption= {
- origin:"http://localhost:5173",
+ origin:"https://bookstore-frontend-rdej.onrender.com",
  methods: "GET, POST, DELETE, PATCH, HEAD",
     credentials: true
 }
