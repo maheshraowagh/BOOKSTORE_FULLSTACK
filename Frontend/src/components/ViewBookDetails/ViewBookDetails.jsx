@@ -13,12 +13,13 @@ const ViewBookDetails = () => {
     const { id } = useParams();
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const role = useSelector((state) => state.auth.role);
+    const API = "https://bookstore-backenc.onrender.com"
 
    
 
     const singleBook = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/admin/getSingleBook/${id}`, {
+            const response = await axios.get(`${API}/api/admin/getSingleBook/${id}`, {
                 headers: { "Content-Type": "application/json" }
             });
             console.log(response.data);
@@ -40,7 +41,7 @@ const ViewBookDetails = () => {
 
     const handleFav = async()=>{
       try {
-        const response = await axios.patch(`http://localhost:5000/api/favorite/addBookINFav`,
+        const response = await axios.patch(`${API}/api/favorite/addBookINFav`,
             {},
             {headers}
            )
@@ -56,7 +57,7 @@ const ViewBookDetails = () => {
 
     const handleCart = async()=>{
         try {
-            const response = await axios.patch("http://localhost:5000/api/cart/addToCart",{},
+            const response = await axios.patch(`${API}/api/cart/addToCart`,{},
                 {headers})
                   alert(response.data.message)
         } catch (error) {
